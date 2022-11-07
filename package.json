@@ -1,0 +1,19 @@
+{
+  "name": "e-avp-mqtt",
+  "version": "1.0.0",
+  "description": "sample for mqtt client with protocol buffer for e-avp project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "R6",
+  "license": "ISC",
+  "dependencies": {
+    "mqtt": "^4.3.7",
+    "protobufjs": "^7.1.2"
+  },
+  "devDependencies": {
+    "protobufjs-cli": "^1.0.2"
+  }
+}

@@ -1,0 +1,315 @@
+syntax = "proto3";
+package keti;
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Google.Protobuf.keti.Avp";
+
+// Version.
+message Version {
+	// Major version.
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, )
+	uint32	major = 1;
+
+	// Minor version.
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, )
+	uint32	minor = 2;
+
+	// Patch version.
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, )
+	uint32	patch = 3;
+}
+
+// Entity.
+message Entity {
+	// First level identifier.
+	string	primary_id = 1;
+
+	// Second level identifier.
+	string	secondary_id = 2;
+
+	// Type.
+	string	type = 3;
+
+	// Software version.
+	Version software_version = 4;
+
+	// Hardware version.
+	Version hardware_version = 5;
+}
+
+// Envelope.
+message Envelope {
+	// Format version.
+	Version	version = 1;
+
+	// Information about the submitting entity which may be a fleet, a vehicle manufacturer or a specific service/software. The primary id might be the company name whereas the secondary id might be a service reason, a bilateral contract identifier or similar.
+	//
+	// @example Values primary_id: "ABC Vehicle Manufacturer", secondary_id: "ConnectedVehicleSensorDataCollectionUnit", type: "HazardWarning".
+	Entity submitter = 2;
+}
+
+message Ids {
+	// Session identifier
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [1, )
+	string	session_id = 1;
+	
+	// Message identifier
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [1, )
+	int32	message_id = 2;
+}
+
+
+// CAN Data
+message AvpVehicleParkingSensor {
+	// Front alarm
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	FR_alarm	= 2;
+	
+	// Front Center S??? alarm
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	FCS_alarm	= 3;
+	
+	// Front Left S??? alarm
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	FLS_alarm	= 4;
+	
+	// Front Right S??? alarm
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	FRS_alarm	= 5;
+
+	// Front indication
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	FI_ind		= 6;
+	
+	// Front O??? Left indication
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	FOL_ind		= 7;
+	
+	// Front O??? Right indication
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	FOR_ind		= 8;
+	
+	// Rear alarm
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	RR_alarm	= 9;
+	
+	// Rear Center S??? alarm
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	RCS_alarm	= 10;
+	
+	// Rear Left S??? alarm
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	RLS_alarm	= 11;
+	
+	// Rear Right S??? alarm
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	RRS_alarm	= 12;
+
+	// Rear indication
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	RI_ind		= 13;
+	
+	// Rear O??? Left indication
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	ROL_ind		= 14;
+	
+	// Rear O??? Right indication
+	//
+	// @unit 1
+	// @resolution 1
+	// @range [0, 3]
+	uint32	ROR_ind		= 15;
+}
+
+message AvpVehicleParkingSensors {
+	google.protobuf.Timestamp			time	= 1;
+	repeated AvpVehicleParkingSensor	data	= 2;
+}
+
+message AvpVehicleSteeringSensor {	
+	// Steering Angle Sensor(SAS) angle
+	//
+	// @unit deg
+	// @resolution 0.1
+	// @range [-3276.8, 3276.7]
+	float	sas_angle	= 2;
+	
+	// Steering Angle Sensor(SAS) angle
+	//
+	// @unit ""
+	// @resolution 4.0
+	// @range [0, 1016.0]
+	uint32	sas_speed	= 3;
+}
+
+message AvpVehicleSteeringSensors {	
+	google.protobuf.Timestamp			time	= 1;
+	repeated AvpVehicleSteeringSensor	data	= 2;
+}
+	
+message AvpVehicleEngineSensor {	
+	// Engine Management System(EMS) accel pedal sensor
+	//
+	// @unit "%"
+	// @resolution 0.3906
+	// @range [0.3906, 99.603]
+	float	tps		= 2;
+	
+	// Engine Management System(EMS) vehicle speed
+	//
+	// @unit "km/h"
+	// @resolution 1
+	// @range [0, 255]
+	int32	speed	= 3;
+	
+	// LVR Gear
+	//
+	// @unit ""
+	// @resolution 1
+	// @range [0, 15]
+	// P=0, S=4, D=5, N=6, R=7, (수동 1,2,3단 모두)=8
+	int32	gear	= 4;
+}
+
+message AvpVehicleEngineSensors {
+	google.protobuf.Timestamp		time	= 1;
+	repeated AvpVehicleEngineSensor	data	= 2;
+}
+
+message AvpVehicleStabilitySensor {
+	// ESP(Electronic Stability Program) LAT Accel
+	//
+	// @unit "m/s^2"
+	// @resolution 0.01
+	// @range [-10.23, 10.24]
+	float	esp_lat_accel	= 2;
+	
+	// ESP(Electronic Stability Program) LONG Accel
+	//
+	// @unit "m/s^2"
+	// @resolution 0.01
+	// @range [-10.23, 10.24]
+	float	esp_long_accel	= 3;
+	
+	// ESP(Electronic Stability Program) yaw rate
+	//
+	// @unit ""
+	// @resolution 0.01
+	// @range [-40.95, 40.96]
+	float	esp_yaw_rate	= 4;
+}
+
+message AvpVehicleStabilitySensors {
+	google.protobuf.Timestamp			time	= 1;
+	repeated AvpVehicleStabilitySensor	data	= 2;
+}
+
+message AvpVehicleDoorSensor {
+	bool	DrvDoorSw	= 1;	// 운전석 앞문
+	bool	AstDoorSw	= 2;	// 조수석 앞문
+	bool	RearLeftDoorSw	= 3;	// 왼쪽 뒷문
+	bool	RearRightDoorSw	= 4;	// 오른쪽 뒷문
+}
+
+message AvpVehicleDoorSensors {
+	google.protobuf.Timestamp		time	= 1;
+	repeated AvpVehicleDoorSensor	data	= 2;
+}
+
+message AvpDataMessage {
+	AvpVehicleParkingSensors		parking		= 1;
+	AvpVehicleSteeringSensors		steering	= 2;
+	AvpVehicleEngineSensors			engine		= 3;
+	AvpVehicleStabilitySensors		stability	= 4;
+	AvpVehicleDoorSensors			door		= 5;
+}
+
+message AvpControlMessage {
+	enum Type {
+		UNKNOWN_TYPE	= 0;
+		REQ_RESET		= 1;
+		REQ_CONNECT		= 2;
+		RESP_CONNECT	= 3;
+	}
+	Type type	= 1;
+	
+	enum Code {
+		UNKNOWN_CODE	= 0;
+		SUCCESS			= 1;
+		FAIL			= 2;
+	}
+	Code code	= 2;
+}
+
+// Data messages for transport, i.e. the root message type that is exchanged between Service Cloud, Vehicle Cloud and Vehicle Fleet.
+message AvpMessage {
+	// Envelope.
+	Envelope envelope	= 1;
+
+	// Ids
+	Ids		id			= 2;
+	
+	oneof message {
+		// Control message
+		AvpControlMessage	ctrl	= 3;
+		// Data message.
+		AvpDataMessage	data	= 4;
+	}
+}
+
+	
