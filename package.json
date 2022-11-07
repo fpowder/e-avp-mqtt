@@ -10,6 +10,7 @@
   "author": "R6",
   "license": "ISC",
   "dependencies": {
+    "kafkajs": "^2.2.2",
     "mqtt": "^4.3.7",
     "protobufjs": "^7.1.2"
   },
