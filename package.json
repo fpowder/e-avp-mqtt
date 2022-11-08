@@ -5,13 +5,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mqtt pub -t /hello -h 192.168.1.78 -p 1883 -m from MQTT.js",
+    "help": "mqtt help pub"
   },
   "author": "R6",
   "license": "ISC",
   "dependencies": {
     "kafkajs": "^2.2.2",
     "mqtt": "^4.3.7",
+    "nodemon": "^2.0.20",
     "protobufjs": "^7.1.2"
   },
   "devDependencies": {
