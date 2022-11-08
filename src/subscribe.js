@@ -1,5 +1,5 @@
 
-import { entity, version } from './protoBuf.js';
+import { entity, version, avpVehicleEngineSensors } from './protoBuf.js';
 import { client } from './mqtt.js';
 
 client.on('connect', () => {
@@ -25,6 +25,10 @@ client.subscribe('/version', (err) => {
     if(err) console.log(err);
 });
 
+client.subscribe('/engineSensors', (err) => {
+    if(err) console.log(err);
+});
+
 client.on('message', (topic, payload) => {
     console.log('Received Message:', topic, payload);
     console.log(payload.length);
@@ -33,7 +37,10 @@ client.on('message', (topic, payload) => {
         console.log('decodedEntityPayload : ', entity.decode(payload));
     } else if(topic === '/version') {
         console.log('decodedVersionPayload : ', version.decode(payload));
+    } else if(topic === '/engineSensors') {
+        console.log('decodedEngineSensors : ', avpVehicleEngineSensors.decode(payload));
     }
 
 });
 
+ 

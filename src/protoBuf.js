@@ -3,7 +3,7 @@
 
 import protobuf from 'protobufjs';
 import path from 'path'; 
-
+protobuf.g
 const __dirname = path.resolve();
 
 
@@ -33,7 +33,7 @@ export const envelope = avpProto.lookupType('keti.Envelope');
 export const ids = avpProto.lookupType('keti.Ids');
 
 export const avpVehicleParkingSensor = avpProto.lookupType('keti.AvpVehicleParkingSensor');
-export const avpVehicleParkginSensor = avpProto.lookupType('keti.AvpVehicleParkingSensors');
+export const avpVehicleParkingSensors = avpProto.lookupType('keti.AvpVehicleParkingSensors');
 
 export const avpVehicleSteeringSensor = avpProto.lookupType('keti.AvpVehicleSteeringSensor');
 export const avpVehicleSteeringSensors = avpProto.lookupType('keti.AvpVehicleSteeringSensors');
@@ -58,19 +58,19 @@ console.log('envelope: ' + !!envelope);
 console.log('ids: ' + !!ids);
 
 console.log('avpVehicleParkingSensor: ' + !!avpVehicleParkingSensor);
-console.log('avpVehicleParkingSensors: ' + !!avpVehicleParkingSensor);
+console.log('avpVehicleParkingSensors: ' + !!avpVehicleParkingSensors);
 
 console.log('avpVehicleSteeringSensor:' + !!avpVehicleSteeringSensor);
-console.log('avpVehicleSteeringSensors:' + !!avpVehicleSteeringSensor);
+console.log('avpVehicleSteeringSensors:' + !!avpVehicleSteeringSensors);
 
 console.log('avpVehicleEngineSensor: ' + !!avpVehicleEngineSensor);
-console.log('avpVehicleEngineSensors: ' + !!avpVehicleEngineSensor);
+console.log('avpVehicleEngineSensors: ', !!avpVehicleEngineSensors);
 
 console.log('avpVehicleStabilitySensor: ' + !!avpVehicleStabilitySensor);
-console.log('avpVehicleStabilitySensors: ' + !!avpVehicleStabilitySensor);
+console.log('avpVehicleStabilitySensors: ' + !!avpVehicleStabilitySensors);
 
 console.log('avpVehicleDoorSensor: ' + !!avpVehicleDoorSensor);
-console.log('avpVehicleDoorSensors: ' + !!avpVehicleDoorSensor);
+console.log('avpVehicleDoorSensors: ' + !!avpVehicleDoorSensors);
 
 console.log('avpDataMessage: ' + !!avpDataMessage);
 console.log('avpControlMessage: ' + !!avpControlMessage);

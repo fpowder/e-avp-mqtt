@@ -391,6 +391,14 @@ glob@^8.0.0:
     minimatch "^5.0.1"
     once "^1.3.0"
 
+google-proto-files@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/google-proto-files/-/google-proto-files-3.0.2.tgz#4f49bf1b8e846b3763ccbc96685ea89fa0545d19"
+  integrity sha512-NJOCeNrhH4cScdi+XdCGaqNclqOrt+Qsc8xzOjgwYfcksg1HXBnTCxBhiFvqbavv2vIYmHpm3Ri1QL9xW+UgoQ==
+  dependencies:
+    protobufjs "^7.0.0"
+    walkdir "^0.4.0"
+
 graceful-fs@^4.1.9:
   version "4.2.10"
   resolved "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.10.tgz"
@@ -413,6 +421,11 @@ help-me@^3.0.0:
   dependencies:
     glob "^7.1.6"
     readable-stream "^3.6.0"
+
+hirestime@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/hirestime/-/hirestime-7.0.3.tgz#90917d6d44ff90084cab7651276d7a4f1fdcb17a"
+  integrity sha512-XmjAwwjLJlDjVVljWht/+Pb6vTfs6A0z2ZpaCkVmzEkwiZcO/+lbj1DsxpsDvkVprYHCmNBxTr7tUohdlxG2Hw==
 
 ieee754@^1.1.13:
   version "1.2.1"
@@ -526,9 +539,9 @@ linkify-it@^3.0.1:
   dependencies:
     uc.micro "^1.0.1"
 
-lodash@^4.17.14, lodash@^4.17.15:
+lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.21:
   version "4.17.21"
-  resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 long@^5.0.0:
@@ -721,7 +734,7 @@ protobufjs-cli@^1.0.2:
     tmp "^0.2.1"
     uglify-js "^3.7.7"
 
-protobufjs@^7.1.2:
+protobufjs@^7.0.0, protobufjs@^7.1.2:
   version "7.1.2"
   resolved "https://registry.npmjs.org/protobufjs/-/protobufjs-7.1.2.tgz"
   integrity sha512-4ZPTPkXCdel3+L81yw3dG6+Kq3umdWKh7Dc7GW/CpNk4SX3hK58iPCWeCyhVTDrbkNeKrYNZ7EojM5WDaEWTLQ==
@@ -926,6 +939,11 @@ util-deprecate@^1.0.1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
+
+walkdir@^0.4.0:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/walkdir/-/walkdir-0.4.1.tgz#dc119f83f4421df52e3061e514228a2db20afa39"
+  integrity sha512-3eBwRyEln6E1MSzcxcVpQIhRG8Q1jLvEqRmCZqS3dsfXEDR/AhOF4d+jHg1qvDCpYaVRZjENPQyrVxAkQqxPgQ==
 
 word-wrap@~1.2.3:
   version "1.2.3"

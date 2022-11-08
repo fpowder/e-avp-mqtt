@@ -11,7 +11,10 @@
   "author": "R6",
   "license": "ISC",
   "dependencies": {
+    "google-proto-files": "^3.0.2",
+    "hirestime": "^7.0.3",
     "kafkajs": "^2.2.2",
+    "lodash": "^4.17.21",
     "mqtt": "^4.3.7",
     "nodemon": "^2.0.20",
     "protobufjs": "^7.1.2"
