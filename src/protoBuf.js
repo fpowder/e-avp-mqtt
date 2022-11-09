@@ -1,28 +1,8 @@
-// const protobuf  = require('protobufjs');
-// const path = require('path');
-
 import protobuf from 'protobufjs';
 import path from 'path'; 
-protobuf.g
+import { logger } from './logger.js';
+
 const __dirname = path.resolve();
-
-
-/* protobuf.load(path.join(__dirname, 'src', 'Avp.proto'), (err, root) => {
-    if(err) {
-        console.log(err);
-        return;
-    }
-
-    // console.log(root);
-
-    // Obtain a message type 
-    const AvpVehicleParkingSensor = root.lookupType('keti.AvpVehicleParkingSensor');
-    // console.log(AvpVehicleParkingSensor);
-
-    const AvpVehicleParkingSensors = root.lookupType('keti.AvpVehicleParkingSensors');
-    // console.log(AvpVehicleParkingSensors);
-}); */
-
 
 // load proto with sync
 export const avpProto = protobuf.loadSync(path.join(__dirname, 'src', 'Avp.proto'));
@@ -52,34 +32,33 @@ export const avpControlMessage = avpProto.lookupType('keti.AvpControlMessage');
 
 export const avpMessage = avpProto.lookupType('keti.AvpMessage');
 
-console.log('version: ' + !!version);
-console.log('entity: ' + !!entity);
-console.log('envelope: ' + !!envelope);
-console.log('ids: ' + !!ids);
+logger.info('version: ' + !!version);
+logger.info('entity: ' + !!entity);
+logger.info('envelope: ' + !!envelope);
+logger.info('ids: ' + !!ids);
 
-console.log('avpVehicleParkingSensor: ' + !!avpVehicleParkingSensor);
-console.log('avpVehicleParkingSensors: ' + !!avpVehicleParkingSensors);
+logger.info('avpVehicleParkingSensor: ' + !!avpVehicleParkingSensor);
+logger.info('avpVehicleParkingSensors: ' + !!avpVehicleParkingSensors);
 
-console.log('avpVehicleSteeringSensor:' + !!avpVehicleSteeringSensor);
-console.log('avpVehicleSteeringSensors:' + !!avpVehicleSteeringSensors);
+logger.info('avpVehicleSteeringSensor:' + !!avpVehicleSteeringSensor);
+logger.info('avpVehicleSteeringSensors:' + !!avpVehicleSteeringSensors);
 
-console.log('avpVehicleEngineSensor: ' + !!avpVehicleEngineSensor);
-console.log('avpVehicleEngineSensors: ', !!avpVehicleEngineSensors);
+logger.info('avpVehicleEngineSensor: ' + !!avpVehicleEngineSensor);
+logger.info('avpVehicleEngineSensors: ', !!avpVehicleEngineSensors);
 
-console.log('avpVehicleStabilitySensor: ' + !!avpVehicleStabilitySensor);
-console.log('avpVehicleStabilitySensors: ' + !!avpVehicleStabilitySensors);
+logger.info('avpVehicleStabilitySensor: ' + !!avpVehicleStabilitySensor);
+logger.info('avpVehicleStabilitySensors: ' + !!avpVehicleStabilitySensors);
 
-console.log('avpVehicleDoorSensor: ' + !!avpVehicleDoorSensor);
-console.log('avpVehicleDoorSensors: ' + !!avpVehicleDoorSensors);
+logger.info('avpVehicleDoorSensor: ' + !!avpVehicleDoorSensor);
+logger.info('avpVehicleDoorSensors: ' + !!avpVehicleDoorSensors);
 
-console.log('avpDataMessage: ' + !!avpDataMessage);
-console.log('avpControlMessage: ' + !!avpControlMessage);
+logger.info('avpDataMessage: ' + !!avpDataMessage);
+logger.info('avpControlMessage: ' + !!avpControlMessage);
 
-console.log('avpMessage: '+ !!avpMessage);
-
+logger.info('avpMessage: '+ !!avpMessage);
 
 // const avpVehicleParkingSensor = avpProto.lookupType('keti.AvpVehicleParkingSensor');
-// console.log(avpVehicleParkingSensor);
+// logger.info(avpVehicleParkingSensor);
 
 // const avpVehicleParkingSensors = avpProto.lookupType('keti.AvpVehicleParkingSensors');
-// console.log(avpVehicleParkingSensors);
+// logger.info(avpVehicleParkingSensors);

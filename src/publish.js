@@ -1,10 +1,10 @@
 import * as mqtt from 'mqtt';
 import _ from 'lodash';
-import hirestime from 'hirestime';
+// import hirestime from 'hirestime';
 import * as googleProtos from 'google-proto-files'; 
-import { entity, version, avpVehicleEngineSensors, avpVehicleEngineSensor } from './protoBuf.js';
+import { entity, version, avpVehicleEngineSensors } from './protoBuf.js';
  
-const getElapsed = hirestime();
+// const getElapsed = hirestime();
 
 /**
  * dummy data

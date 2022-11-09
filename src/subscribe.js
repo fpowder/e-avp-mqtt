@@ -1,46 +1,45 @@
 
 import { entity, version, avpVehicleEngineSensors } from './protoBuf.js';
 import { client } from './mqtt.js';
+import { logger } from './logger.js';
 
 client.on('connect', () => {
-    console.log('connected!!');
+    logger.info('connected to mqtt broker!!');
 });
 
-/**
- * real subscribe path to LG u++ mqtt broker
- */
-// client.subscribe('/auto/car/server/byte/rawdata', (err) => {
-//     if(err) {
-//         console.log(err);
-//     }
-//     console.log('subscribe path : /auto/car/server/byte/rawdata');
-
-// });
-
 client.subscribe('/entity', (err) => {
-    if(err) console.log(err);
+    if(err) logger.info(err);
 });
 
 client.subscribe('/version', (err) => {
-    if(err) console.log(err);
+    if(err) logger.info(err);
 });
 
 client.subscribe('/engineSensors', (err) => {
-    if(err) console.log(err);
+    if(err) logger.info(err);
 });
 
 client.on('message', (topic, payload) => {
-    console.log('Received Message:', topic, payload);
-    console.log(payload.length);
+    logger.info('Received Message:', topic, payload);
+    logger.info(payload.length);
 
     if(topic === '/entity') {
-        console.log('decodedEntityPayload : ', entity.decode(payload));
+        logger.info('decodedEntityPayload : ', entity.decode(payload));
     } else if(topic === '/version') {
-        console.log('decodedVersionPayload : ', version.decode(payload));
+        logger.info('decodedVersionPayload : ', version.decode(payload));
     } else if(topic === '/engineSensors') {
-        console.log('decodedEngineSensors : ', avpVehicleEngineSensors.decode(payload));
+        logger.info('decodedEngineSensors : ', avpVehicleEngineSensors.decode(payload));
     }
 
 });
 
- 
+/**
+* real subscribe path to LG u++ mqtt broker
+*/
+// client.subscribe('/auto/car/server/byte/rawdata', (err) => {
+//     if(err) {
+//         logger.info(err);
+//     }
+//     logger.info('subscribe path : /auto/car/server/byte/rawdata');
+
+// });
