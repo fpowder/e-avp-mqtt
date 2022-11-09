@@ -7,7 +7,11 @@ client.on('connect', () => {
     logger.info('connected to mqtt broker!!');
 });
 
-client.subscribe('/entity', (err) => {
+/**
+ * test subscribe for local test 
+ * hivemq broker running on 192.168.1.78
+ */
+/* client.subscribe('/entity', (err) => {
     if(err) logger.error(err);
 });
 
@@ -38,7 +42,7 @@ client.on('message', (topic, payload) => {
             decoded: avpVehicleEngineSensors.decode(payload)
         });
     }
-});
+}); */
 
 /**
 * real subscribe path to LG u++ mqtt broker

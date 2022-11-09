@@ -18,3 +18,4 @@ web-build/
 
 # ignore log files and databases
 *.log.*
+logs/
