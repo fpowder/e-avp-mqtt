@@ -39,7 +39,7 @@ export const logger = createLogger({
         }),
         new transports.DailyRotateFile({
             level: 'error',
-            datePattern: 'YYY-MM-DD',
+            datePattern: 'YYYY-MM-DD',
             dirname: `${logDir}`,
             filename: `${appName}-error.log`,
             format: format.combine(
